@@ -3,10 +3,22 @@ set_time_limit(0);
 ini_set('default_socket_timeout', 300);
 session_start();
 
-define('client_ID', 'c73d173254d844b89d8117954f97d9ee');
-define('client_Secret', '971766cd8c4f4af7b7a6ff36f32b68b0');
+define('clientID', 'fca09d6bd4184cfe88a35f47502026f1');
+define('clientSecret', '3bd4400e6c034d359f5b49edf5939610');
 define('redirectURI', 'http://localhost/appacademyapi/insta.php');
 define('ImageDirectory', 'pics/');
+
+if (isset($_GET['code'])){
+	$code = ($_GET['code']);
+	$url = 'https://api.instagram.com/oauth/access_token';
+	$access_token_settings = array('client_id' => clientID,
+									'client_secret' => clientSecret,
+									'grant_type' => 'authorization_code',
+									'redirect_uri' => redirectURI,
+									'code' => $code
+								);
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +28,7 @@ define('ImageDirectory', 'pics/');
 	<title></title>
 </head>
 <body>
-	<a href="http:api.instagram/oauth/authorize/?client_id=xxx&redirect_uri=xxx&response_type=code">LOGIN</a>
+	<a href="https:api.instagram.com/oauth/authorize/?client_id=<?php echo clientID;?>&redirect_uri=<?php echo redirectURI?>&response_type=code">LOGIN</a>
 	<script src="js/main.js"></script>
 </body>
 </html>
