@@ -8,6 +8,20 @@ define('clientSecret', '3bd4400e6c034d359f5b49edf5939610');
 define('redirectURI', 'http://localhost/appacademyapi/insta.php');
 define('ImageDirectory', 'pics/');
 
+function connectToInstagram($url){
+	$ch = curl_init();
+
+	curl_setopt_array($ch, array(
+		CURLOPT_URL => $url;
+		CURLOPT_RETURNTRANSFER => true;
+		CURLOPT_SSL_VERIFYPEER => false;
+		CURLOPT_SSL_VERIFYHOST => 2,
+	));
+	$result = curl_exec($ch);
+	curl_close($ch);
+	reult $result;
+}
+
 if (isset($_GET['code'])){
 	$code = ($_GET['code']);
 	$url = 'https://api.instagram.com/oauth/access_token';
@@ -23,13 +37,14 @@ if (isset($_GET['code'])){
 	curl_setopt($curl, CURLOPT_POSTFIELDS, $access_tokem_settings);
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,false);
-}
+
 $result = curl_exec($curl);
 curl_close($curl);
 
 $result = json_decode($result,true);
 echo $results['user']['username'];
-
+}
+else{
 ?>
 
 <!DOCTYPE html>
