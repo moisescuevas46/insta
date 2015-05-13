@@ -25,7 +25,11 @@ if (isset($_GET['code'])){
 	curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,false);
 }
 $result = curl_exec($curl);
-curl_close()
+curl_close($curl);
+
+$result = json_decode($result,true);
+echo $results['user']['username'];
+
 ?>
 
 <!DOCTYPE html>
