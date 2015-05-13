@@ -12,15 +12,24 @@ function connectToInstagram($url){
 	$ch = curl_init();
 
 	curl_setopt_array($ch, array(
-		CURLOPT_URL => $url;
-		CURLOPT_RETURNTRANSFER => true;
-		CURLOPT_SSL_VERIFYPEER => false;
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_SSL_VERIFYPEER => false,
 		CURLOPT_SSL_VERIFYHOST => 2,
 	));
 	$result = curl_exec($ch);
 	curl_close($ch);
-	reult $result;
+	return $result;
 }
+
+function GetUserID($userName){
+	$url = 'http://api.instagram.com/v1/users/search?q='.$userName.'&client_id='.clientID;
+	$instagramInfo = connectToInstagram($url);
+	$results = json_decode($instagramInfo, true);
+
+	echo $results['data']['0']['id'];
+}	
+
 
 if (isset($_GET['code'])){
 	$code = ($_GET['code']);
