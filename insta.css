@@ -24,7 +24,7 @@ h2 {
 
 /* NAV SECTION */
 
-.companyName {
+.titleName {
 	padding: 20px 17px 19px 15%;
 	margin: 0;
 	float: left;
@@ -114,7 +114,7 @@ header nav ul li a:focus {
 
 
 @media (max-width:900px) {
-  .companyName {
+  .titleName {
     width: 100%;
     text-align: center;
     padding: 4% 4%;

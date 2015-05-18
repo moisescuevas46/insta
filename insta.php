@@ -93,11 +93,10 @@ else{
 	<header>
 				<div class="navWrapper" id="home">
 					<div class=" clearfix">
-						<h2 class="companyName">Moys ayye-okay project!</h2>
+						<h2 class="titleName">Moys ayye-okay project!</h2>
 						<nav class="mainNav clearfix">
 							<ul>
 								<li><a href="#work" class="smoothScroll"><a href="https:api.instagram.com/oauth/authorize/?client_id=<?php echo clientID;?>&redirect_uri=<?php echo redirectURI?>&response_type=code">LOGIN</a>
-								<script src="js/main.js"></script></a></li>
 
 							</ul>
 						</nav>
