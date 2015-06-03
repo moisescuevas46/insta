@@ -40,7 +40,7 @@ function printImages($userID)
 	foreach($results['data'] as $items)
 	 {
 	 	$image_url = $items['images']['low_resolution']['url']; //go through all of the results and give back the url of those pictures because we want to save it in the php server.
-	 	echo '<img src=" '. $image_url .' "/><br/>';
+	 	echo '<body class="body-insta"><center><img src=" '. $image_url .' "/></center></body><br/>';
 	 	savePictures($image_url);
 	 }
 }
